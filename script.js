@@ -17,8 +17,19 @@ let divide = function (a, b) {
 add (1, 5);
 
 let operate = function (a, b, operator) {
-    if (operator === '+') {
-        add (a, b);
+    switch (true) {
+        case operator === '+':
+            add (a, b);
+            break;
+        case operator === '-':
+            subtract (a, b);
+            break;
+        case operator === '*':
+            multiply (a, b);
+            break;
+        case operator === '/': 
+            divide (a, b);
+            break;      
     }
 }
 
