@@ -1,18 +1,45 @@
 * {
-    border: black solid 2px;
-    padding: 5px;
+    border-radius: 16px;
+}
+body {
+    background-color:lightslategray;
 }
 
 .background {
-    
+    background-color: rgb(134, 0, 56);
+    width: 300px;
+    height: 450px;
+    padding: 8px;
+    margin: 8vh auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 2px rgb(41, 41, 41);
 }
 
 .display {
-
+    background-color: rgb(49, 40, 40);
+    box-shadow: inset 2px 2px 2px black;
+    height: 70px;
+    padding: 8px;
+    margin: 8px;
 }
 
 .button-container {
-    
+    flex: 1;
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+button {
+    font-size: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    background-color: rgb(53, 2, 119);
+    width: 22%;
+    margin: 4px;
+    box-shadow: 2px 2px 2px black;
 }
 
 .digit {
