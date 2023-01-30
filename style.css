@@ -6,7 +6,7 @@ body {
 }
 
 .background {
-    background-color: rgb(134, 0, 56);
+    background-color: rgb(102, 0, 31);
     width: 300px;
     height: 450px;
     padding: 8px;
@@ -17,11 +17,18 @@ body {
 }
 
 .display {
-    background-color: rgb(49, 40, 40);
+    font-size: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    text-align: right;
+    background-color: rgb(34, 33, 54);
     box-shadow: inset 2px 2px 2px black;
     height: 70px;
     padding: 8px;
     margin: 8px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .button-container {
@@ -36,9 +43,10 @@ button {
     font-size: 40px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
-    background-color: rgb(53, 2, 119);
+    background-color: rgb(13, 0, 29);
     width: 22%;
     margin: 4px;
+    padding: 6px 0 0 0;
     box-shadow: 2px 2px 2px black;
 }
 
