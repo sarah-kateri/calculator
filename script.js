@@ -172,7 +172,7 @@ function operate (a, b, operator) {
     }
 }
 
-//Add event listeners on operators and other symbol buttons.//
+//Add event listeners on operators.//
 //Operate if a and b are both occupied variables. //
 //Modify 'a' to equal the total in case the equation is continuing.//
 
@@ -235,11 +235,16 @@ equals.addEventListener('click', () => {
     
 });
 
+//Add event listeners on other symbol buttons.//
+
 point.addEventListener('click', () => {
-    if (a !== '') {
-        display.textContent = a + '.';
-    } else if (b !== '') {
-        display.textContent = b + '.';
+    if (operator === '') {
+        a += '.';
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b += '.';
+        display.textContent = b;
     }
 });
 
