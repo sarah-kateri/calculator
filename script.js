@@ -241,7 +241,14 @@ point.addEventListener('click', () => {
 });
 
 backspace.addEventListener('click', () => {
-   
+    if (operator === '') {
+        a = a.slice(0, a.length - 1);
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b = b.slice(0, b.length - 1);
+        display.textContent = b;
+    }
 });
 
 percent.addEventListener('click', () => {
