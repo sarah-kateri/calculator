@@ -145,22 +145,7 @@ nine.addEventListener('click', () => {
     }
 });
 
-//Operator functions and operator switch//
-
-function multiply (a, b) {
-    display.textContent = Number(a) * Number(b);
-    a = Number(a) * Number(b);
-}
-
-function divide (a, b) {
-    display.textContent = a / b;
-    a = Number(a) / Number(b);
-}
-
-function raiseToPower (a, b) {
-    display.textContent = a ** b;
-    a = Number(a) ** Number(b);
-}
+//Operator switch//
 
 function operate (a, b, operator) {
     switch (true) {
@@ -173,13 +158,16 @@ function operate (a, b, operator) {
             display.textContent = total;
             break;
         case operator === '*':
-            multiply(a, b);
+            total = Number(a) * Number(b);
+            display.textContent = total;
             break;
         case operator === '/': 
-            divide(a, b);
+            total = Number(a) / Number(b);
+            display.textContent = total;
             break; 
         case operator === '**':
-            raiseToPower(a, b);
+            total = Number(a) ** Number(b);
+            display.textContent = total;
             break;         
     }
 }
