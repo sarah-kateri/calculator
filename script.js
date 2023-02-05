@@ -196,8 +196,6 @@ plus.addEventListener('click', () => {
     }
     operator = '+';
     b = '';
-    console.log(a);
-    console.log(b);
 });
 
 minus.addEventListener('click', () => {
@@ -208,14 +206,13 @@ minus.addEventListener('click', () => {
     }
     operator = '-';
     b = '';
-    console.log(a);
-    console.log(b);
 });
 
 times.addEventListener('click', () => {
     display.textContent = '*';
     if (a !== '' & b !== '') {
         operate (a, b, operator);
+        a = total;
     }
     operator = '*';
     b = '';
@@ -225,6 +222,7 @@ dividedBy.addEventListener('click', () => {
     display.textContent = '/';
     if (a !== '' & b !== '') {
         operate (a, b, operator);
+        a = total;
     }
     operator = '/';
     b = '';
@@ -234,9 +232,19 @@ toPower.addEventListener('click', () => {
     display.textContent = '^';
     if (a !== '' & b !== '') {
         operate (a, b, operator);
+        a = total;
     }
     operator = '**';
     b = '';
+});
+
+equals.addEventListener('click', () => {
+    if (a !== '' & b !== '') {
+    operate (a, b, operator);
+    a = total;
+    }
+    b = '';
+    
 });
 
 point.addEventListener('click', () => {
@@ -259,12 +267,7 @@ clear.addEventListener('click', () => {
 
 });
 
-equals.addEventListener('click', () => {
-    if (a !== '' & b !== '') {
-    operate (a, b, operator);
-    }
-    b = '';
-});
+
 
 
 
