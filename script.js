@@ -22,64 +22,125 @@ const percent = document.getElementById('percent');
 const clear = document.getElementById('clear');
 const equals = document.getElementById('equals');
 
-let a = 'temp';
-let b = 'temp';
-let operator;
+let a = '';
+let b = '';
+let operator = '';
 
 //Add event listeners on 0-9 buttons//
 
 zero.addEventListener('click', () => {
-    display.textContent = '0';
-    a === 'temp' ? a = 0 : b = 0;
+    if (operator === '') {
+        a += 0;
+        display.textContent = a;
+    } else if (operator !== '') {
+        b += 0;
+        display.textContent = b;
+    }  
+    console.log(a); 
+    console.log(b);
 });
 
 one.addEventListener('click', () => {
-    display.textContent = '1';
-    a === 'temp' ? a = 1 : b = 1;
+    if (operator === '') {
+        a += 1;
+    display.textContent = a;
+    } else if (operator !== '') {
+        b += 1;
+    display.textContent = b;
     console.log (a);
     console.log (b);
+    }
 });
 
 two.addEventListener('click', () => {
-    display.textContent = '2';
-    a === 'temp' ? a = 2 : b = 2;
-    console.log (a);
-    console.log (b);
+    if (operator === '') {
+        a += 2;
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b += 2;
+        display.textContent = b;
+    console.log(a);
+    console.log(b);
+    console.log(operator);
+    }
 });
 
 three.addEventListener('click', () => {
-    display.textContent = '3';
-    a === 'temp' ? a = 3 : b = 3;
+    if (operator === '') {
+        a += 3;
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b += 3;
+        display.textContent = b;
+    }
 });
 
 four.addEventListener('click', () => {
-    display.textContent = '4';
-    a === 'temp' ? a = 4 : b = 4;
+    if (operator === '') {
+        a += 4;
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b += 4;
+        display.textContent = b;
+    }
 });
 
 five.addEventListener('click', () => {
-    display.textContent = '5';
-    a === 'temp' ? a = 5 : b = 5;
+    if (operator === '') {
+        a += 5;
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b += 5;
+        display.textContent = b;
+    }
 });
 
 six.addEventListener('click', () => {
-    display.textContent = '6';
-    a === 'temp' ? a = 6 : b = 6;
+    if (operator === '') {
+        a += 6;
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b += 6;
+        display.textContent = b;
+    }
 });
 
 seven.addEventListener('click', () => {
-    display.textContent = '7';
-    a === 'temp' ? a = 7 : b = 7;
+    if (operator === '') {
+        a += 7;
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b += 7;
+        display.textContent = b;
+    }
 });
 
 eight.addEventListener('click', () => {
-    display.textContent = '8';
-    a === 'temp' ? a = 8 : b = 8;
+    if (operator === '') {
+        a += 2;
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b += 2;
+        display.textContent = b;
+    }
 });
 
 nine.addEventListener('click', () => {
-    display.textContent = '9';
-    a === 'temp' ? a = 9 : b = 9;
+    if (operator === '') {
+        a += 2;
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b += 2;
+        display.textContent = b;
+    }
 });
 
 //Add event listeners on operators and other symbol buttons.//
@@ -88,58 +149,48 @@ nine.addEventListener('click', () => {
 
 plus.addEventListener('click', () => {
     display.textContent = '+';
-    operator = '+';
-    if (a !== 'temp' & b !== 'temp') {
+    if (a !== '' & b !== '') {
         operate (a, b, operator);
-        a = a + b;
-        b = 'temp';
     }
+    operator = '+';
 });
 
 minus.addEventListener('click', () => {
     display.textContent = '-';
-    operator = '-';
-    if (a !== 'temp' & b !== 'temp') {
-        operate (a, b, operator);
-        a = a - b;
-        b = 'temp';
+    if (a !== '' & b !== '') {
+        operate (a, b, operator);  
     }
+    operator = '-';
 });
 
 times.addEventListener('click', () => {
-    display.textContent = 'x';
-    operator = '*';
-    if (a !== 'temp' & b !== 'temp') {
+    display.textContent = '*';
+    if (a !== '' & b !== '') {
         operate (a, b, operator);
-        a = a * b;
-        b = 'temp';
     }
+    operator = '*';
 });
 
 dividedBy.addEventListener('click', () => {
     display.textContent = '/';
-    operator = '/';
-    if (a !== 'temp' & b !== 'temp') {
+    if (a !== '' & b !== '') {
         operate (a, b, operator);
-        a = a / b;
-        b = 'temp';
     }
+    operator = '/';
 });
 
 toPower.addEventListener('click', () => {
     display.textContent = '^';
-    operator = '**';
-    if (a !== 'temp' & b !== 'temp') {
+    if (a !== '' & b !== '') {
         operate (a, b, operator);
-        a = a ** b;
-        b = 'temp';
     }
+    operator = '**';
 });
 
 point.addEventListener('click', () => {
-    if (a !== 'temp') {
+    if (a !== '') {
         display.textContent = a + '.';
-    } else if (b !== 'temp') {
+    } else if (b !== '') {
         display.textContent = b + '.';
     }
 });
@@ -163,23 +214,33 @@ equals.addEventListener('click', () => {
 //Operator functions and operator switch//
 
 let add = function (a, b) {
-    display.textContent = a + b;
+    display.textContent = Number(a + b);
+    a = Number(a + b);
+    b = '';
 }
 
 let subtract = function (a, b) {
     display.textContent = a - b;
+    a = a - b;
+    b = '';
 }
 
 let multiply = function (a, b) {
     display.textContent = a * b;
+    a = a * b;
+    b = '';
 }
 
 let divide = function (a, b) {
     display.textContent = a / b;
+    a = a / b;
+    b = '';
 }
 
 let raiseToPower = function (a, b) {
     display.textContent = a ** b;
+    a = a ** b;
+    b = '';
 }
 
 let operate = function (a, b, operator) {
