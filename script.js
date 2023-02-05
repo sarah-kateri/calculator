@@ -24,7 +24,7 @@ const equals = document.getElementById('equals');
 
 let a = '';
 let b = '';
-let total;
+let total = '';
 let operator = '';
 
 //Add event listeners on 0-9 buttons//
@@ -36,9 +36,7 @@ zero.addEventListener('click', () => {
     } else if (operator !== '') {
         b += 0;
         display.textContent = b;
-    }  
-    console.log(a); 
-    console.log(b);
+    } 
 });
 
 one.addEventListener('click', () => {
@@ -48,9 +46,6 @@ one.addEventListener('click', () => {
     } else if (operator !== '') {
         b += 1;
     display.textContent = b;
-    console.log(a);
-    console.log(b);
-    console.log(operator);
     }
 });
 
@@ -62,9 +57,6 @@ two.addEventListener('click', () => {
     if (operator !== '') {
         b += 2;
         display.textContent = b;
-    console.log(a);
-    console.log(b);
-    console.log(operator);
     }
 });
 
@@ -257,7 +249,11 @@ percent.addEventListener('click', () => {
 });
 
 clear.addEventListener('click', () => {
-
+    a = '';
+    b = '';
+    total = '';
+    operator = '';
+    display.textContent = '';
 });
 
 
