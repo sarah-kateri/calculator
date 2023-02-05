@@ -245,7 +245,14 @@ backspace.addEventListener('click', () => {
 });
 
 percent.addEventListener('click', () => {
-    
+    if (operator === '') {
+        a = a / 100;
+        display.textContent = a;
+    } 
+    if (operator !== '') {
+        b = b / 100;
+        display.textContent = b;
+    }
 });
 
 clear.addEventListener('click', () => {
