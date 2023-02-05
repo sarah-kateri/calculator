@@ -24,6 +24,7 @@ const equals = document.getElementById('equals');
 
 let a = '';
 let b = '';
+let total;
 let operator = '';
 
 //Add event listeners on 0-9 buttons//
@@ -47,8 +48,9 @@ one.addEventListener('click', () => {
     } else if (operator !== '') {
         b += 1;
     display.textContent = b;
-    console.log (a);
-    console.log (b);
+    console.log(a);
+    console.log(b);
+    console.log(operator);
     }
 });
 
@@ -123,25 +125,64 @@ seven.addEventListener('click', () => {
 
 eight.addEventListener('click', () => {
     if (operator === '') {
-        a += 2;
+        a += 8;
         display.textContent = a;
     } 
     if (operator !== '') {
-        b += 2;
+        b += 8;
         display.textContent = b;
     }
 });
 
 nine.addEventListener('click', () => {
     if (operator === '') {
-        a += 2;
+        a += 9;
         display.textContent = a;
     } 
     if (operator !== '') {
-        b += 2;
+        b += 9;
         display.textContent = b;
     }
 });
+
+//Operator functions and operator switch//
+
+function multiply (a, b) {
+    display.textContent = Number(a) * Number(b);
+    a = Number(a) * Number(b);
+}
+
+function divide (a, b) {
+    display.textContent = a / b;
+    a = Number(a) / Number(b);
+}
+
+function raiseToPower (a, b) {
+    display.textContent = a ** b;
+    a = Number(a) ** Number(b);
+}
+
+function operate (a, b, operator) {
+    switch (true) {
+        case operator === '+':
+            total = Number(a) + Number(b);
+            display.textContent = total;
+            break;
+        case operator === '-':
+            total = Number(a) - Number(b);
+            display.textContent = total;
+            break;
+        case operator === '*':
+            multiply(a, b);
+            break;
+        case operator === '/': 
+            divide(a, b);
+            break; 
+        case operator === '**':
+            raiseToPower(a, b);
+            break;         
+    }
+}
 
 //Add event listeners on operators and other symbol buttons.//
 //Operate if a and b are both occupied variables. //
@@ -151,16 +192,24 @@ plus.addEventListener('click', () => {
     display.textContent = '+';
     if (a !== '' & b !== '') {
         operate (a, b, operator);
+        a = total;
     }
     operator = '+';
+    b = '';
+    console.log(a);
+    console.log(b);
 });
 
 minus.addEventListener('click', () => {
     display.textContent = '-';
     if (a !== '' & b !== '') {
-        operate (a, b, operator);  
+        operate (a, b, operator); 
+        a = total; 
     }
     operator = '-';
+    b = '';
+    console.log(a);
+    console.log(b);
 });
 
 times.addEventListener('click', () => {
@@ -169,6 +218,7 @@ times.addEventListener('click', () => {
         operate (a, b, operator);
     }
     operator = '*';
+    b = '';
 });
 
 dividedBy.addEventListener('click', () => {
@@ -177,6 +227,7 @@ dividedBy.addEventListener('click', () => {
         operate (a, b, operator);
     }
     operator = '/';
+    b = '';
 });
 
 toPower.addEventListener('click', () => {
@@ -185,6 +236,7 @@ toPower.addEventListener('click', () => {
         operate (a, b, operator);
     }
     operator = '**';
+    b = '';
 });
 
 point.addEventListener('click', () => {
@@ -208,58 +260,11 @@ clear.addEventListener('click', () => {
 });
 
 equals.addEventListener('click', () => {
+    if (a !== '' & b !== '') {
     operate (a, b, operator);
+    }
+    b = '';
 });
 
-//Operator functions and operator switch//
 
-let add = function (a, b) {
-    display.textContent = Number(a + b);
-    a = Number(a + b);
-    b = '';
-}
-
-let subtract = function (a, b) {
-    display.textContent = a - b;
-    a = a - b;
-    b = '';
-}
-
-let multiply = function (a, b) {
-    display.textContent = a * b;
-    a = a * b;
-    b = '';
-}
-
-let divide = function (a, b) {
-    display.textContent = a / b;
-    a = a / b;
-    b = '';
-}
-
-let raiseToPower = function (a, b) {
-    display.textContent = a ** b;
-    a = a ** b;
-    b = '';
-}
-
-let operate = function (a, b, operator) {
-    switch (true) {
-        case operator === '+':
-            add(a, b);
-            break;
-        case operator === '-':
-            subtract(a, b);
-            break;
-        case operator === '*':
-            multiply(a, b);
-            break;
-        case operator === '/': 
-            divide(a, b);
-            break; 
-        case operator === '**':
-            raiseToPower(a, b);
-            break;         
-    }
-}
 
