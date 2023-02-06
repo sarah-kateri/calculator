@@ -32,9 +32,11 @@ let operator = '';
 zero.addEventListener('click', () => {
     if (operator === '') {
         a += 0;
+        a = a.slice(0, 12);
         display.textContent = a;
     } else if (operator !== '') {
         b += 0;
+        b = b.slice(0, 12);
         display.textContent = b;
     } 
 });
@@ -42,9 +44,11 @@ zero.addEventListener('click', () => {
 one.addEventListener('click', () => {
     if (operator === '') {
         a += 1;
+        a = a.slice(0, 12);
     display.textContent = a;
     } else if (operator !== '') {
         b += 1;
+        b = b.slice(0, 12);
     display.textContent = b;
     }
 });
@@ -52,10 +56,12 @@ one.addEventListener('click', () => {
 two.addEventListener('click', () => {
     if (operator === '') {
         a += 2;
+        a = a.slice(0, 12);
         display.textContent = a;
     } 
     if (operator !== '') {
         b += 2;
+        b = b.slice(0, 12);
         display.textContent = b;
     }
 });
@@ -63,10 +69,12 @@ two.addEventListener('click', () => {
 three.addEventListener('click', () => {
     if (operator === '') {
         a += 3;
-        display.textContent = a;
+        aDisplay = a.slice(0, 12);
+        display.textContent = aDisplay;
     } 
     if (operator !== '') {
         b += 3;
+        b = b.slice(0, 12);
         display.textContent = b;
     }
 });
@@ -74,10 +82,12 @@ three.addEventListener('click', () => {
 four.addEventListener('click', () => {
     if (operator === '') {
         a += 4;
+        a = a.slice(0, 12);
         display.textContent = a;
     } 
     if (operator !== '') {
         b += 4;
+        b = b.slice(0, 12);
         display.textContent = b;
     }
 });
@@ -85,10 +95,12 @@ four.addEventListener('click', () => {
 five.addEventListener('click', () => {
     if (operator === '') {
         a += 5;
+        a = a.slice(0, 12);
         display.textContent = a;
     } 
     if (operator !== '') {
         b += 5;
+        b = b.slice(0, 12);
         display.textContent = b;
     }
 });
@@ -96,10 +108,12 @@ five.addEventListener('click', () => {
 six.addEventListener('click', () => {
     if (operator === '') {
         a += 6;
+        a = a.slice(0, 12);
         display.textContent = a;
     } 
     if (operator !== '') {
         b += 6;
+        b = b.slice(0, 12);
         display.textContent = b;
     }
 });
@@ -107,10 +121,12 @@ six.addEventListener('click', () => {
 seven.addEventListener('click', () => {
     if (operator === '') {
         a += 7;
+        a = a.slice(0, 12);
         display.textContent = a;
     } 
     if (operator !== '') {
         b += 7;
+        b = b.slice(0, 12);
         display.textContent = b;
     }
 });
@@ -118,10 +134,12 @@ seven.addEventListener('click', () => {
 eight.addEventListener('click', () => {
     if (operator === '') {
         a += 8;
+        a = a.slice(0, 12);
         display.textContent = a;
     } 
     if (operator !== '') {
         b += 8;
+        b = b.slice(0, 12);
         display.textContent = b;
     }
 });
@@ -129,10 +147,12 @@ eight.addEventListener('click', () => {
 nine.addEventListener('click', () => {
     if (operator === '') {
         a += 9;
+        a = a.slice(0, 12);
         display.textContent = a;
     } 
     if (operator !== '') {
         b += 9;
+        b = b.slice(0, 12);
         display.textContent = b;
     }
 });
@@ -143,22 +163,28 @@ function operate (a, b, operator) {
     switch (true) {
         case operator === '+':
             total = Number(a) + Number(b);
-            display.textContent = total;
+            totalDisplay = total.toString().slice(0, 12);
+            display.textContent = totalDisplay;
             break;
         case operator === '-':
             total = Number(a) - Number(b);
+            total = total.toString().slice(0, 12);
             display.textContent = total;
             break;
         case operator === '*':
             total = Number(a) * Number(b);
+            total = total.toString().slice(0, 12);
             display.textContent = total;
+            console.log(total);
             break;
         case operator === '/': 
             total = Number(a) / Number(b);
+            total = total.toString().slice(0, 12);
             display.textContent = total;
             break; 
         case operator === '**':
             total = Number(a) ** Number(b);
+            total = total.toString().slice(0, 12);
             display.textContent = total;
             break;         
     }
@@ -224,7 +250,6 @@ equals.addEventListener('click', () => {
     a = total;
     }
     b = '';
-    
 });
 
 //Add event listeners on other symbol buttons.//
