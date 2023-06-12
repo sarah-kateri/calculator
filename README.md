@@ -1,1 +1,1 @@
-A basic calculator tool
+A basic calculator tool - The Odin Project
